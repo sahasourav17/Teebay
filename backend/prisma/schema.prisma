@@ -14,13 +14,32 @@ datasource db {
 }
 
 model User {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   firstName   String
   lastName    String
   address     String
-  email       String   @unique
+  email       String    @unique
   phoneNumber String
   password    String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  Product     Product[]
+}
+
+model Product {
+  id             Int       @id @default(autoincrement())
+  name           String
+  description    String
+  purchasePrice  Float
+  rentalPrice    Float
+  rentalDuration String
+  userId         Int
+  user           User      @relation(fields: [userId], references: [id])
+  categories Category[]
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  products Product[]
 }
