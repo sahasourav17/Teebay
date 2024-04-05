@@ -43,7 +43,7 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.user = null;
       state.error = null;
-      sessionStorage.setItem("isAuthenticated", false);
+      sessionStorage.removeItem("isAuthenticated");
     },
   },
   extraReducers: (builder) => {
