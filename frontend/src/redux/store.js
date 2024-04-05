@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./authSlice";
+import userProducts from "./userProductsSlice";
 import { createLogger } from "redux-logger";
 import { appEnv } from "../config/variables";
 
@@ -15,6 +16,7 @@ if (loggerEnvs.includes(appEnv)) {
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    userProducts: userProducts,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
