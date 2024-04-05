@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   return (
@@ -22,6 +23,15 @@ function App() {
           />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/create-product"
+            element={
+              <ProtectedRoute>
+                {" "}
+                <AddProduct />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Router>
     </MantineProvider>

@@ -15,7 +15,7 @@ const ProductList = () => {
         {products?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-        <Link to="/create">
+        <Link to="/create-product">
           <Button mt={30} mb={20}>
             Add Product
           </Button>
