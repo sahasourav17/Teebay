@@ -2,7 +2,10 @@ import React from "react";
 import { Text, Group, Card, Divider, Button } from "@mantine/core";
 import { IconTrashFilled } from "@tabler/icons-react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onDelete }) => {
+  const handleDelete = () => {
+    onDelete(product.id);
+  };
   return (
     <Card
       shadow="sm"
@@ -15,7 +18,7 @@ const ProductCard = ({ product }) => {
         <Text fw={500} size="lg">
           {product.name}
         </Text>
-        <Button size="xs" variant="transparent">
+        <Button size="xs" variant="transparent" onClick={handleDelete}>
           <IconTrashFilled size={32} color="#3d3d3d" />
         </Button>
       </Group>

@@ -7,18 +7,12 @@ import { logout } from "../redux/authSlice";
 import { fetchUserProducts } from "../redux/userProductsSlice";
 
 const Home = () => {
-  const { user: userData } = useSelector((state) => state.auth);
-  // console.log("data", user);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(logout());
   };
 
-  useEffect(() => {
-    const userId = userData?.user?.id;
-    dispatch(fetchUserProducts(userId));
-  }, [dispatch]);   
   return (
     <Container size="xl">
       <Box style={{ display: "flex", justifyContent: "flex-end" }}>
