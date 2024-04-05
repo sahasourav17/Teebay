@@ -15,6 +15,19 @@ export const login = createAsyncThunk(
   }
 );
 
+export const register = createAsyncThunk(
+  "auth/register",
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const res = await axios.post(`${apiBaseUrl}/auth/register`, credentials);
+      return res;
+    } catch (err) {
+      console.log(err);
+      return rejectWithValue(err);
+    }
+  }
+);
+
 const initialState = {
   user: null,
   isLoggedIn: false,
